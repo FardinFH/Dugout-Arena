@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baseball Tournaments | Dugout Arena</title>
+    <link rel="stylesheet" href="sports.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="brand">
+        <img src="logo.png" alt="Dugout Arena Logo">
+        <span>Dugout Arena</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="live-scores.html" class="active">Live Scores</a>
+        <a href="teams.html">Teams</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<main>
+    <section class="sports-hero">
+        <div class="hero-glow"></div>
+
+        <div class="sports-content">
+            <span class="tagline">Baseball Arena</span>
+            <h1>Baseball Tournaments</h1>
+            <p>Select a tournament and enter its scoreboard arena.</p>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search tournament name...">
+            </div>
+        </div>
+    </section>
+
+    <section class="tournament-section">
+        <div class="section-heading">
+            <span>Available Tournaments</span>
+            <h2>Choose Tournament</h2>
+        </div>
+
+        <div class="tournament-grid" id="tournamentGrid">
+
+            <a href="baseball-tournament-details.html?tournament=mlb" class="tournament-card" data-name="mlb major league baseball">
+                <span class="badge famous">Famous</span>
+                <div class="icon">⚾</div>
+                <h3>MLB</h3>
+                <p>USA</p>
+            </a>
+
+            <a href="baseball-tournament-details.html?tournament=world-baseball-classic" class="tournament-card" data-name="world baseball classic wbc">
+                <span class="badge famous">Famous</span>
+                <div class="icon">🌎</div>
+                <h3>World Baseball Classic</h3>
+                <p>WBC</p>
+            </a>
+
+            <a href="baseball-tournament-details.html?tournament=nippon-professional-baseball" class="tournament-card" data-name="nippon professional baseball npb japan">
+                <span class="badge league">League</span>
+                <div class="icon">🇯🇵</div>
+                <h3>Nippon Professional Baseball</h3>
+                <p>Japan</p>
+            </a>
+
+            <a href="baseball-tournament-details.html?tournament=kbo-league" class="tournament-card" data-name="kbo league korea baseball">
+                <span class="badge live">Live</span>
+                <div class="icon">🇰🇷</div>
+                <h3>KBO League</h3>
+                <p>Korea</p>
+            </a>
+
+        </div>
+
+        <p class="no-result" id="noResult">No tournaments found</p>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Dugout Arena. All rights reserved.</p>
+</footer>
+
+<script>
+const searchInput = document.getElementById("searchInput");
+const cards = document.querySelectorAll(".tournament-card");
+const noResult = document.getElementById("noResult");
+
+searchInput.addEventListener("keyup", function () {
+    const value = searchInput.value.toLowerCase().trim();
+    let visibleCards = 0;
+
+    cards.forEach(function (card) {
+        const name = card.getAttribute("data-name");
+
+        if (name.includes(value)) {
+            card.style.display = "flex";
+            visibleCards++;
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    noResult.style.display = visibleCards === 0 ? "block" : "none";
+});
+</script>
+
+</body>
+</html>

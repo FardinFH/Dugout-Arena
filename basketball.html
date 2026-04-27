@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball Tournaments | Dugout Arena</title>
+    <link rel="stylesheet" href="sports.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="brand">
+            <img src="logo.png" alt="Dugout Arena Logo">
+            <span>Dugout Arena</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tournaments.html">Tournaments</a>
+            <a href="live-scores.html" class="active">Live Scores</a>
+            <a href="teams.html">Teams</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="sports-hero">
+            <div class="hero-glow"></div>
+
+            <div class="sports-content">
+                <span class="tagline">Basketball Arena</span>
+                <h1>Basketball Tournaments</h1>
+                <p>Select a tournament and enter its scoreboard arena.</p>
+
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search tournament name...">
+                </div>
+            </div>
+        </section>
+
+        <section class="tournament-section">
+            <div class="section-heading">
+                <span>Available Tournaments</span>
+                <h2>Choose Tournament</h2>
+            </div>
+
+            <div class="tournament-grid" id="tournamentGrid">
+
+                <a href="basketball-tournament-details.html?tournament=nba" class="tournament-card" data-name="nba national basketball association">
+                    <span class="badge famous">Famous</span>
+                    <div class="icon">🏀</div>
+                    <h3>NBA</h3>
+                    <p>USA</p>
+                </a>
+
+                <a href="basketball-tournament-details.html?tournament=euroleague" class="tournament-card" data-name="euroleague basketball europe">
+                    <span class="badge league">League</span>
+                    <div class="icon">⭐</div>
+                    <h3>EuroLeague</h3>
+                    <p>Europe</p>
+                </a>
+
+                <a href="basketball-tournament-details.html?tournament=fiba-world-cup" class="tournament-card" data-name="fiba basketball world cup">
+                    <span class="badge famous">Famous</span>
+                    <div class="icon">🌍</div>
+                    <h3>FIBA Basketball World Cup</h3>
+                    <p>World Cup</p>
+                </a>
+
+                <a href="basketball-tournament-details.html?tournament=nba-playoffs" class="tournament-card" data-name="nba playoffs">
+                    <span class="badge live">Live</span>
+                    <div class="icon">🔥</div>
+                    <h3>NBA Playoffs</h3>
+                    <p>Playoffs</p>
+                </a>
+
+                <a href="basketball-tournament-details.html?tournament=ncaa" class="tournament-card" data-name="ncaa basketball college basketball">
+                    <span class="badge league">League</span>
+                    <div class="icon">🎓</div>
+                    <h3>NCAA Basketball</h3>
+                    <p>College</p>
+                </a>
+
+                <a href="basketball-tournament-details.html?tournament=basketball-champions-league" class="tournament-card" data-name="basketball champions league">
+                    <span class="badge famous">Famous</span>
+                    <div class="icon">🏆</div>
+                    <h3>Basketball Champions League</h3>
+                    <p>Europe</p>
+                </a>
+
+            </div>
+
+            <p class="no-result" id="noResult">No tournaments found</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Dugout Arena. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const cards = document.querySelectorAll(".tournament-card");
+        const noResult = document.getElementById("noResult");
+
+        searchInput.addEventListener("keyup", function () {
+            const value = searchInput.value.toLowerCase().trim();
+            let visibleCards = 0;
+
+            cards.forEach(function (card) {
+                const name = card.getAttribute("data-name");
+
+                if (name.includes(value)) {
+                    card.style.display = "flex";
+                    visibleCards++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            noResult.style.display = visibleCards === 0 ? "block" : "none";
+        });
+    </script>
+
+</body>
+</html>
