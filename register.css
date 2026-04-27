@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #050505;
+    color: #ffffff;
+}
+
+.register-page {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+
+    background:
+        radial-gradient(circle at center, rgba(166,255,0,0.18), transparent 35%),
+        linear-gradient(120deg, #020202, #0a0a0a, #000);
+}
+
+.register-page::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background-image:
+        linear-gradient(rgba(166,255,0,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(166,255,0,0.06) 1px, transparent 1px);
+
+    background-size: 58px 58px;
+    mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1;
+}
+
+.register-box {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 470px;
+    padding: 38px 32px;
+
+    background: linear-gradient(145deg, #111, #080808);
+    border: 1px solid rgba(166,255,0,0.25);
+    border-radius: 22px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.6),
+        0 0 40px rgba(166,255,0,0.08);
+}
+
+.logo-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.logo-area img {
+    width: 50px;
+}
+
+.logo-area h2 {
+    color: #a6ff00;
+}
+
+.register-box h1 {
+    font-size: 32px;
+    font-weight: 900;
+    text-transform: uppercase;
+
+    background: linear-gradient(180deg, #fff, #a6ff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    margin: 10px 0 24px;
+    color: #aaa;
+    font-size: 14px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 14px 16px;
+
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+
+    outline: none;
+}
+
+.input-group select {
+    cursor: pointer;
+}
+
+.input-group select option {
+    background: #111;
+    color: #fff;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: rgba(166,255,0,0.75);
+    box-shadow: 0 0 18px rgba(166,255,0,0.12);
+}
+
+.input-group input::placeholder {
+    color: #777;
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    padding-right: 60px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    font-size: 12px;
+    font-weight: 700;
+    color: #a6ff00;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggle-password:hover {
+    opacity: 0.7;
+}
+
+.register-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+
+    border: none;
+    border-radius: 999px;
+
+    background: #a6ff00;
+    color: #000;
+
+    font-weight: 900;
+    cursor: pointer;
+
+    box-shadow: 0 0 28px rgba(166,255,0,0.35);
+    transition: 0.3s;
+}
+
+.register-btn:hover {
+    background: #8ee600;
+    transform: translateY(-2px);
+}
+
+.login-text {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #bbb;
+}
+
+.login-text a {
+    color: #a6ff00;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.login-text a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .register-box {
+        padding: 32px 24px;
+    }
+
+    .register-box h1 {
+        font-size: 28px;
+    }
+}

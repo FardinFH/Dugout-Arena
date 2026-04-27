@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Dugout Arena</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<section class="login-page">
+    <div class="overlay"></div>
+
+    <div class="login-box">
+        <div class="logo-area">
+            <img src="logo.png" alt="Logo">
+            <h2>Dugout Arena</h2>
+        </div>
+
+        <h1>Welcome Back</h1>
+        <p class="subtitle">Login to enter the sports battlefield</p>
+
+        <form id="loginForm">
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+
+                <div class="password-wrapper">
+                    <input type="password" id="password" placeholder="Enter your password" required>
+
+                    <span class="toggle-password" onclick="togglePassword()" id="toggleText">
+                        Show
+                    </span>
+                </div>
+            </div>
+
+            <div class="options">
+                <label>
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="forgot-password.html">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+
+        <p class="register-text">
+            Don’t have an account?
+            <a href="register.html">Create Account</a>
+        </p>
+    </div>
+</section>
+
+<script>
+const loginForm = document.getElementById("loginForm");
+
+loginForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (email === "" || password === "") {
+        alert("Please fill in all fields");
+        return;
+    }
+
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("userEmail", email);
+
+    window.location.href = "tournaments.html";
+});
+
+function togglePassword() {
+    const password = document.getElementById("password");
+    const toggleText = document.getElementById("toggleText");
+
+    if (password.type === "password") {
+        password.type = "text";
+        toggleText.innerText = "Hide";
+    } else {
+        password.type = "password";
+        toggleText.innerText = "Show";
+    }
+}
+</script>
+
+</body>
+</html>
