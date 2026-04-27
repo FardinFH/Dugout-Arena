@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Tournaments | Dugout Arena</title>
+    <link rel="stylesheet" href="cricket.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="brand">
+            <img src="logo.png" alt="Dugout Arena Logo">
+            <span>Dugout Arena</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tournaments.html">Tournaments</a>
+            <a href="live-scores.html" class="active">Live Scores</a>
+            <a href="teams.html">Teams</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cricket-hero">
+            <div class="hero-glow"></div>
+
+            <div class="cricket-content">
+                <span class="tagline">Cricket Arena</span>
+                <h1>Cricket Tournaments</h1>
+                <p>Select a tournament and enter its scoreboard arena.</p>
+
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search tournament name...">
+                </div>
+            </div>
+        </section>
+
+        <section class="tournament-section">
+            <div class="section-heading">
+                <span>Available Tournaments</span>
+                <h2>Choose Tournament</h2>
+            </div>
+
+            <div class="tournament-grid" id="tournamentGrid">
+
+                <a href="tournament-details.html?tournament=ipl" class="tournament-card" data-name="ipl indian premier league">
+                    <span class="badge live">Live</span>
+                    <div class="icon">🏏</div>
+                    <h3>Indian Premier League</h3>
+                    <p>IPL</p>
+                </a>
+
+                <a href="tournament-details.html?tournament=bpl" class="tournament-card" data-name="bpl bangladesh premier league">
+                    <span class="badge upcoming">Upcoming</span>
+                    <div class="icon">🏏</div>
+                    <h3>Bangladesh Premier League</h3>
+                    <p>BPL</p>
+                </a>
+
+                <a href="tournament-details.html?tournament=world-cup" class="tournament-card" data-name="icc cricket world cup world cup">
+                    <span class="badge famous">Famous</span>
+                    <div class="icon">🏆</div>
+                    <h3>ICC Cricket World Cup</h3>
+                    <p>World Cup</p>
+                </a>
+
+                <a href="tournament-details.html?tournament=t20-world-cup" class="tournament-card" data-name="icc t20 world cup t20">
+                    <span class="badge famous">Famous</span>
+                    <div class="icon">⚡</div>
+                    <h3>ICC T20 World Cup</h3>
+                    <p>T20 World Cup</p>
+                </a>
+
+                <a href="tournament-details.html?tournament=asia-cup" class="tournament-card" data-name="asia cup">
+                    <span class="badge famous">Famous</span>
+                    <div class="icon">🌏</div>
+                    <h3>Asia Cup</h3>
+                    <p>Asian Cricket</p>
+                </a>
+
+                <a href="tournament-details.html?tournament=champions-trophy" class="tournament-card" data-name="icc champions trophy">
+                    <span class="badge famous">Famous</span>
+                    <div class="icon">🥇</div>
+                    <h3>ICC Champions Trophy</h3>
+                    <p>ICC Trophy</p>
+                </a>
+
+                <a href="tournament-details.html?tournament=psl" class="tournament-card" data-name="psl pakistan super league">
+                    <span class="badge league">League</span>
+                    <div class="icon">🏏</div>
+                    <h3>Pakistan Super League</h3>
+                    <p>PSL</p>
+                </a>
+
+                <a href="tournament-details.html?tournament=bbl" class="tournament-card" data-name="bbl big bash league">
+                    <span class="badge league">League</span>
+                    <div class="icon">🔥</div>
+                    <h3>Big Bash League</h3>
+                    <p>BBL</p>
+                </a>
+
+                <a href="tournament-details.html?tournament=cpl" class="tournament-card" data-name="cpl caribbean premier league">
+                    <span class="badge league">League</span>
+                    <div class="icon">🌴</div>
+                    <h3>Caribbean Premier League</h3>
+                    <p>CPL</p>
+                </a>
+
+                <a href="tournament-details.html?tournament=sa20" class="tournament-card" data-name="sa20 south africa t20 league">
+                    <span class="badge league">League</span>
+                    <div class="icon">⚔️</div>
+                    <h3>SA20 League</h3>
+                    <p>South Africa</p>
+                </a>
+
+                <a href="tournament-details.html?tournament=the-hundred" class="tournament-card" data-name="the hundred england cricket">
+                    <span class="badge league">League</span>
+                    <div class="icon">💯</div>
+                    <h3>The Hundred</h3>
+                    <p>England</p>
+                </a>
+
+                <a href="tournament-details.html?tournament=lpl" class="tournament-card" data-name="lpl lanka premier league">
+                    <span class="badge league">League</span>
+                    <div class="icon">🦁</div>
+                    <h3>Lanka Premier League</h3>
+                    <p>LPL</p>
+                </a>
+
+            </div>
+
+            <p class="no-result" id="noResult">No tournaments found</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Dugout Arena. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const cards = document.querySelectorAll(".tournament-card");
+        const noResult = document.getElementById("noResult");
+
+        searchInput.addEventListener("keyup", function () {
+            const value = searchInput.value.toLowerCase().trim();
+            let visibleCards = 0;
+
+            cards.forEach(function (card) {
+                const name = card.getAttribute("data-name");
+
+                if (name.includes(value)) {
+                    card.style.display = "flex";
+                    visibleCards++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            noResult.style.display = visibleCards === 0 ? "block" : "none";
+        });
+    </script>
+
+</body>
+</html>

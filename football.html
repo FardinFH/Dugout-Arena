@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Tournaments | Dugout Arena</title>
+    <link rel="stylesheet" href="football.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="brand">
+            <img src="logo.png" alt="Dugout Arena Logo">
+            <span>Dugout Arena</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tournaments.html">Tournaments</a>
+            <a href="live-scores.html" class="active">Live Scores</a>
+            <a href="teams.html">Teams</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="football-hero">
+            <div class="hero-glow"></div>
+
+            <div class="football-content">
+                <span class="tagline">Football Arena</span>
+                <h1>Football Tournaments</h1>
+                <p>Select a tournament and enter its scoreboard arena.</p>
+
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search tournament name...">
+                </div>
+            </div>
+        </section>
+
+        <section class="tournament-section">
+            <div class="section-heading">
+                <span>Available Tournaments</span>
+                <h2>Choose Tournament</h2>
+            </div>
+
+            <div class="tournament-grid" id="tournamentGrid">
+
+                <a href="football-tournament-details.html?tournament=fifa-world-cup" class="tournament-card" data-name="fifa world cup">
+                    <span class="badge famous">Famous</span>
+                    <div class="icon">🏆</div>
+                    <h3>FIFA World Cup</h3>
+                    <p>World Cup</p>
+                </a>
+
+                <a href="football-tournament-details.html?tournament=uefa-champions-league" class="tournament-card" data-name="uefa champions league ucl">
+                    <span class="badge live">Live</span>
+                    <div class="icon">⭐</div>
+                    <h3>UEFA Champions League</h3>
+                    <p>UCL</p>
+                </a>
+
+                <a href="football-tournament-details.html?tournament=premier-league" class="tournament-card" data-name="english premier league epl premier league">
+                    <span class="badge league">League</span>
+                    <div class="icon">👑</div>
+                    <h3>English Premier League</h3>
+                    <p>EPL</p>
+                </a>
+
+                <a href="football-tournament-details.html?tournament=la-liga" class="tournament-card" data-name="la liga spanish league">
+                    <span class="badge league">League</span>
+                    <div class="icon">🇪🇸</div>
+                    <h3>La Liga</h3>
+                    <p>Spain</p>
+                </a>
+
+                <a href="football-tournament-details.html?tournament=serie-a" class="tournament-card" data-name="serie a italian league">
+                    <span class="badge league">League</span>
+                    <div class="icon">🇮🇹</div>
+                    <h3>Serie A</h3>
+                    <p>Italy</p>
+                </a>
+
+                <a href="football-tournament-details.html?tournament=bundesliga" class="tournament-card" data-name="bundesliga german league">
+                    <span class="badge league">League</span>
+                    <div class="icon">🇩🇪</div>
+                    <h3>Bundesliga</h3>
+                    <p>Germany</p>
+                </a>
+
+                <a href="football-tournament-details.html?tournament=ligue-1" class="tournament-card" data-name="ligue 1 french league">
+                    <span class="badge league">League</span>
+                    <div class="icon">🇫🇷</div>
+                    <h3>Ligue 1</h3>
+                    <p>France</p>
+                </a>
+
+                <a href="football-tournament-details.html?tournament=europa-league" class="tournament-card" data-name="uefa europa league">
+                    <span class="badge famous">Famous</span>
+                    <div class="icon">🔥</div>
+                    <h3>UEFA Europa League</h3>
+                    <p>Europe</p>
+                </a>
+
+                <a href="football-tournament-details.html?tournament=copa-america" class="tournament-card" data-name="copa america">
+                    <span class="badge famous">Famous</span>
+                    <div class="icon">🌎</div>
+                    <h3>Copa America</h3>
+                    <p>South America</p>
+                </a>
+
+                <a href="football-tournament-details.html?tournament=afc-asian-cup" class="tournament-card" data-name="afc asian cup">
+                    <span class="badge famous">Famous</span>
+                    <div class="icon">🌏</div>
+                    <h3>AFC Asian Cup</h3>
+                    <p>Asia</p>
+                </a>
+
+                <a href="football-tournament-details.html?tournament=africa-cup" class="tournament-card" data-name="africa cup of nations afcon">
+                    <span class="badge famous">Famous</span>
+                    <div class="icon">🌍</div>
+                    <h3>Africa Cup of Nations</h3>
+                    <p>AFCON</p>
+                </a>
+
+                <a href="football-tournament-details.html?tournament=major-league-soccer" class="tournament-card" data-name="major league soccer mls">
+                    <span class="badge league">League</span>
+                    <div class="icon">⚽</div>
+                    <h3>Major League Soccer</h3>
+                    <p>MLS</p>
+                </a>
+
+            </div>
+
+            <p class="no-result" id="noResult">No tournaments found</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Dugout Arena. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const cards = document.querySelectorAll(".tournament-card");
+        const noResult = document.getElementById("noResult");
+
+        searchInput.addEventListener("keyup", function () {
+            const value = searchInput.value.toLowerCase().trim();
+            let visibleCards = 0;
+
+            cards.forEach(function (card) {
+                const name = card.getAttribute("data-name");
+
+                if (name.includes(value)) {
+                    card.style.display = "flex";
+                    visibleCards++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            noResult.style.display = visibleCards === 0 ? "block" : "none";
+        });
+    </script>
+
+</body>
+</html>

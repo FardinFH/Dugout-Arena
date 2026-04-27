@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #050505;
+    color: #ffffff;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 60px;
+    background: rgba(5, 5, 5, 0.75);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(166, 255, 0, 0.18);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand img {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 12px rgba(166, 255, 0, 0.45));
+}
+
+.brand span {
+    color: #a6ff00;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.navbar nav a {
+    margin-left: 28px;
+    text-decoration: none;
+    color: #d6d6d6;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: #a6ff00;
+}
+
+/* Live Scores Hero */
+.sports-hero {
+    min-height: 48vh;
+    padding-top: 130px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        radial-gradient(circle at center, rgba(166, 255, 0, 0.18), transparent 35%),
+        linear-gradient(120deg, #050505, #0b0b0b, #050505);
+}
+
+.sports-content {
+    max-width: 760px;
+    padding: 0 24px;
+}
+
+.tagline {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 8px 18px;
+
+    color: #a6ff00;
+    border: 1px solid rgba(166, 255, 0, 0.45);
+    background: rgba(166, 255, 0, 0.08);
+    border-radius: 999px;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.sports-content h1 {
+    font-size: clamp(42px, 7vw, 78px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+
+    background: linear-gradient(180deg, #ffffff, #a6ff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sports-content p {
+    margin-top: 18px;
+    color: #cfcfcf;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* Sports Cards */
+.sports-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+
+    padding: 70px 60px 90px;
+    background:
+        linear-gradient(rgba(166, 255, 0, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(166, 255, 0, 0.035) 1px, transparent 1px),
+        #0a0a0a;
+    background-size: 56px 56px;
+}
+
+.sport-card {
+    min-height: 170px;
+    padding: 28px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    text-decoration: none;
+    color: #ffffff;
+
+    background: linear-gradient(145deg, #111111, #070707);
+    border: 1px solid rgba(166, 255, 0, 0.16);
+    border-radius: 22px;
+
+    font-size: 46px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.35);
+    transition: 0.3s ease;
+}
+
+.sport-card span {
+    font-size: 18px;
+    font-weight: 800;
+    color: #dcdcdc;
+}
+
+.sport-card:hover {
+    transform: translateY(-9px) scale(1.02);
+    border-color: rgba(166, 255, 0, 0.65);
+    box-shadow: 0 25px 65px rgba(166, 255, 0, 0.11);
+}
+
+.sport-card:hover span {
+    color: #a6ff00;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 24px;
+    background: #050505;
+    color: #777777;
+    font-size: 13px;
+    border-top: 1px solid rgba(166, 255, 0, 0.14);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .sports-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 14px 22px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .brand img {
+        width: 46px;
+        height: 46px;
+    }
+
+    .brand span {
+        font-size: 19px;
+    }
+
+    .navbar nav {
+        text-align: center;
+    }
+
+    .navbar nav a {
+        margin: 0 8px;
+        font-size: 13px;
+    }
+
+    .sports-hero {
+        padding-top: 170px;
+        min-height: 55vh;
+    }
+
+    .sports-content h1 {
+        letter-spacing: -1px;
+    }
+
+    .sports-content p {
+        font-size: 15px;
+    }
+
+    .sports-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 50px 22px 70px;
+        gap: 18px;
+    }
+
+    .sport-card {
+        min-height: 145px;
+        font-size: 38px;
+    }
+
+    .sport-card span {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 420px) {
+    .sports-grid {
+        grid-template-columns: 1fr;
+    }
+}
