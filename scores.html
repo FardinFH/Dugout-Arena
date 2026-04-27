@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scores | Dugout Arena</title>
+    <link rel="stylesheet" href="scores.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="brand">
+        <img src="logo.png" alt="Dugout Arena Logo">
+        <span>Dugout Arena</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="live-scores.html">Live Scores</a>
+        <a href="teams.html">Teams</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<main>
+    <section class="score-hero">
+        <span class="tagline">Live Match Center</span>
+        <h1>Scores</h1>
+        <p>All tournament matches in one place. Select a match to view sport-wise live score details.</p>
+    </section>
+
+    <section class="score-section">
+        <div class="score-layout">
+
+            <aside class="match-list">
+                <h2>All Matches</h2>
+
+                <button class="match-item active" data-match="cricket">
+                    <span>01</span>
+                    <div>
+                        <strong>Team Alpha vs Team Beta</strong>
+                        <small>Cricket • Live</small>
+                    </div>
+                </button>
+
+                <button class="match-item" data-match="football">
+                    <span>02</span>
+                    <div>
+                        <strong>ABC Club vs XYZ Club</strong>
+                        <small>Football • Live</small>
+                    </div>
+                </button>
+
+                <button class="match-item" data-match="basketball">
+                    <span>03</span>
+                    <div>
+                        <strong>Storm Five vs Thunder Five</strong>
+                        <small>Basketball • Finished</small>
+                    </div>
+                </button>
+
+                <button class="match-item" data-match="volleyball">
+                    <span>04</span>
+                    <div>
+                        <strong>Red Spikers vs Blue Blockers</strong>
+                        <small>Volleyball • Live</small>
+                    </div>
+                </button>
+
+                <button class="match-item" data-match="boxing">
+                    <span>05</span>
+                    <div>
+                        <strong>Rahim vs Karim</strong>
+                        <small>Boxing • Round 4</small>
+                    </div>
+                </button>
+
+                <button class="match-item" data-match="esports">
+                    <span>06</span>
+                    <div>
+                        <strong>Alpha Esports vs Beta Esports</strong>
+                        <small>Esports • Map 2</small>
+                    </div>
+                </button>
+
+                <button class="match-item" data-match="tennis">
+                    <span>07</span>
+                    <div>
+                        <strong>Sakib vs Tamim</strong>
+                        <small>Tennis • Singles</small>
+                    </div>
+                </button>
+
+                <button class="match-item" data-match="badminton">
+                    <span>08</span>
+                    <div>
+                        <strong>Alpha Pair vs Storm Pair</strong>
+                        <small>Badminton • Doubles</small>
+                    </div>
+                </button>
+
+                <button class="match-item" data-match="tabletennis">
+                    <span>09</span>
+                    <div>
+                        <strong>Mixed Duo A vs Mixed Duo B</strong>
+                        <small>Table Tennis • Mixed Doubles</small>
+                    </div>
+                </button>
+
+                <button class="match-item" data-match="hockey">
+                    <span>10</span>
+                    <div>
+                        <strong>Green Sticks vs Black Sticks</strong>
+                        <small>Hockey • Live</small>
+                    </div>
+                </button>
+            </aside>
+
+            <section class="score-details" id="scoreDetails"></section>
+
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Dugout Arena. All rights reserved.</p>
+</footer>
+
+<script>
+    const scoreData = {
+        cricket: `
+            <div class="score-card">
+                <span class="badge live">Cricket Live</span>
+                <h2>Team Alpha 164/6</h2>
+                <p>18.4 overs • Team Beta need 42 runs from 8 balls</p>
+
+                <div class="main-score">
+                    <div><strong>164/6</strong><span>Team Alpha</span></div>
+                    <div><strong>123/4</strong><span>Team Beta</span></div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="info-box">
+                        <h3>Batting</h3>
+                        <p>Rahim — 72 runs from 44 balls</p>
+                        <p>Karim — 38 runs from 29 balls</p>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>Bowling</h3>
+                        <p>Sakib — 4 overs, 28 runs, 2 wickets</p>
+                        <p>Tamim — 3.4 overs, 31 runs, 1 wicket</p>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>Extras</h3>
+                        <p>Wide: 5 • No Ball: 1 • Bye: 4</p>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>Fall of Wickets</h3>
+                        <p>1-34, 2-87, 3-129, 4-150</p>
+                    </div>
+                </div>
+            </div>
+        `,
+
+        football: `
+            <div class="score-card">
+                <span class="badge live">Football Live</span>
+                <h2>ABC Club 2 - 2 XYZ Club</h2>
+                <p>90+3 minutes • Match going to penalty tiebreaker</p>
+
+                <div class="main-score">
+                    <div><strong>2</strong><span>ABC Club</span></div>
+                    <div><strong>2</strong><span>XYZ Club</span></div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="info-box">
+                        <h3>Goals</h3>
+                        <p>23' ABC Club</p>
+                        <p>55' XYZ Club</p>
+                        <p>72' ABC Club</p>
+                        <p>90+3' XYZ Club</p>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>Cards</h3>
+                        <p>Yellow: ABC 2, XYZ 1</p>
+                        <p>Red: 0</p>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>Stats</h3>
+                        <p>Possession: ABC 54% - XYZ 46%</p>
+                        <p>Shots: ABC 11 - XYZ 9</p>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>Tiebreaker</h3>
+                        <p>Penalty: ABC 4 - XYZ 3</p>
+                    </div>
+                </div>
+            </div>
+        `,
+
+        basketball: `
+            <div class="score-card">
+                <span class="badge finished">Basketball Finished</span>
+                <h2>Storm Five 88 - 82 Thunder Five</h2>
+                <p>Final Score</p>
+
+                <div class="period-score">
+                    <div>Q1 <strong>22-18</strong></div>
+                    <div>Q2 <strong>20-24</strong></div>
+                    <div>Q3 <strong>25-21</strong></div>
+                    <div>Q4 <strong>21-19</strong></div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="info-box"><h3>Top Scorer</h3><p>Rahim — 31 points</p></div>
+                    <div class="info-box"><h3>Rebounds</h3><p>Hasan — 12 rebounds</p></div>
+                    <div class="info-box"><h3>Assists</h3><p>Nayeem — 8 assists</p></div>
+                    <div class="info-box"><h3>Fouls</h3><p>Team Fouls: Storm 7, Thunder 9</p></div>
+                </div>
+            </div>
+        `,
+
+        volleyball: `
+            <div class="score-card">
+                <span class="badge live">Volleyball Live</span>
+                <h2>Red Spikers 2 - 1 Blue Blockers</h2>
+                <p>Set 4 running</p>
+
+                <div class="period-score">
+                    <div>Set 1 <strong>25-21</strong></div>
+                    <div>Set 2 <strong>20-25</strong></div>
+                    <div>Set 3 <strong>25-19</strong></div>
+                    <div>Set 4 <strong>18-14</strong></div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="info-box"><h3>Aces</h3><p>Red 6 • Blue 4</p></div>
+                    <div class="info-box"><h3>Blocks</h3><p>Red 9 • Blue 7</p></div>
+                    <div class="info-box"><h3>Spikes</h3><p>Red 34 • Blue 29</p></div>
+                    <div class="info-box"><h3>Service Errors</h3><p>Red 3 • Blue 5</p></div>
+                </div>
+            </div>
+        `,
+
+        boxing: `
+            <div class="score-card">
+                <span class="badge live">Boxing Live</span>
+                <h2>Rahim vs Karim</h2>
+                <p>Round 4 of 6</p>
+
+                <div class="main-score">
+                    <div><strong>38</strong><span>Rahim Points</span></div>
+                    <div><strong>36</strong><span>Karim Points</span></div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="info-box"><h3>Round Scores</h3><p>R1: 10-9, R2: 9-10, R3: 10-8, R4: 9-9</p></div>
+                    <div class="info-box"><h3>Knockdowns</h3><p>Rahim 0 • Karim 1</p></div>
+                    <div class="info-box"><h3>Punches Landed</h3><p>Rahim 42 • Karim 37</p></div>
+                    <div class="info-box"><h3>Decision</h3><p>Pending</p></div>
+                </div>
+            </div>
+        `,
+
+        esports: `
+            <div class="score-card">
+                <span class="badge live">Esports Live</span>
+                <h2>Alpha Esports 1 - 1 Beta Esports</h2>
+                <p>Map 3 starting soon</p>
+
+                <div class="period-score">
+                    <div>Map 1 <strong>Alpha Win</strong></div>
+                    <div>Map 2 <strong>Beta Win</strong></div>
+                    <div>Map 3 <strong>Pending</strong></div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="info-box"><h3>Kills</h3><p>Alpha 45 • Beta 43</p></div>
+                    <div class="info-box"><h3>MVP</h3><p>PlayerX — 21 kills</p></div>
+                    <div class="info-box"><h3>Objective</h3><p>Alpha 6 • Beta 5</p></div>
+                    <div class="info-box"><h3>Status</h3><p>Best of 3</p></div>
+                </div>
+            </div>
+        `,
+
+        tennis: `
+            <div class="score-card">
+                <span class="badge live">Tennis Singles</span>
+                <h2>Sakib vs Tamim</h2>
+                <p>Set 3 running</p>
+
+                <div class="period-score">
+                    <div>Set 1 <strong>6-4</strong></div>
+                    <div>Set 2 <strong>3-6</strong></div>
+                    <div>Set 3 <strong>4-3</strong></div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="info-box"><h3>Aces</h3><p>Sakib 7 • Tamim 5</p></div>
+                    <div class="info-box"><h3>Double Faults</h3><p>Sakib 2 • Tamim 3</p></div>
+                    <div class="info-box"><h3>Break Points</h3><p>Sakib 3/6 • Tamim 2/5</p></div>
+                    <div class="info-box"><h3>Type</h3><p>Singles Match</p></div>
+                </div>
+            </div>
+        `,
+
+        badminton: `
+            <div class="score-card">
+                <span class="badge live">Badminton Doubles</span>
+                <h2>Alpha Pair vs Storm Pair</h2>
+                <p>Game 2 running</p>
+
+                <div class="period-score">
+                    <div>Game 1 <strong>21-18</strong></div>
+                    <div>Game 2 <strong>16-14</strong></div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="info-box"><h3>Smashes</h3><p>Alpha 18 • Storm 15</p></div>
+                    <div class="info-box"><h3>Net Points</h3><p>Alpha 9 • Storm 7</p></div>
+                    <div class="info-box"><h3>Service Faults</h3><p>Alpha 1 • Storm 2</p></div>
+                    <div class="info-box"><h3>Type</h3><p>Doubles Match</p></div>
+                </div>
+            </div>
+        `,
+
+        tabletennis: `
+            <div class="score-card">
+                <span class="badge live">Table Tennis Mixed Doubles</span>
+                <h2>Mixed Duo A vs Mixed Duo B</h2>
+                <p>Set 5 decider</p>
+
+                <div class="period-score">
+                    <div>Set 1 <strong>11-8</strong></div>
+                    <div>Set 2 <strong>9-11</strong></div>
+                    <div>Set 3 <strong>11-7</strong></div>
+                    <div>Set 4 <strong>8-11</strong></div>
+                    <div>Set 5 <strong>6-4</strong></div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="info-box"><h3>Service Points</h3><p>Duo A 18 • Duo B 15</p></div>
+                    <div class="info-box"><h3>Rallies Won</h3><p>Duo A 42 • Duo B 39</p></div>
+                    <div class="info-box"><h3>Faults</h3><p>Duo A 3 • Duo B 4</p></div>
+                    <div class="info-box"><h3>Type</h3><p>Mixed Doubles</p></div>
+                </div>
+            </div>
+        `,
+
+        hockey: `
+            <div class="score-card">
+                <span class="badge live">Hockey Live</span>
+                <h2>Green Sticks 3 - 2 Black Sticks</h2>
+                <p>Quarter 4 • 04:20 remaining</p>
+
+                <div class="period-score">
+                    <div>Q1 <strong>1-0</strong></div>
+                    <div>Q2 <strong>1-1</strong></div>
+                    <div>Q3 <strong>0-1</strong></div>
+                    <div>Q4 <strong>1-0</strong></div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="info-box"><h3>Goals</h3><p>Green 3 • Black 2</p></div>
+                    <div class="info-box"><h3>Penalty Corners</h3><p>Green 5 • Black 4</p></div>
+                    <div class="info-box"><h3>Saves</h3><p>Green GK 8 • Black GK 6</p></div>
+                    <div class="info-box"><h3>Cards</h3><p>Green 1 yellow • Black 2 yellow</p></div>
+                </div>
+            </div>
+        `
+    };
+
+    const matchItems = document.querySelectorAll(".match-item");
+    const scoreDetails = document.getElementById("scoreDetails");
+
+    function showScore(matchKey) {
+        scoreDetails.innerHTML = scoreData[matchKey];
+    }
+
+    matchItems.forEach(item => {
+        item.addEventListener("click", function () {
+            matchItems.forEach(btn => btn.classList.remove("active"));
+            this.classList.add("active");
+
+            showScore(this.dataset.match);
+        });
+    });
+
+    showScore("cricket");
+</script>
+
+</body>
+</html>
